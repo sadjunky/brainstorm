@@ -1,7 +1,7 @@
 
 
 def insert(ele, s):
-    if len(s) == 0 or ele > s[-1]:
+    if not len(s):
         s.append(ele)
     else:
         temp = s.pop()
@@ -9,10 +9,10 @@ def insert(ele, s):
         s.append(temp)
 
 
-def sort_stack(s):
+def reverse(s):
     if len(s):
         temp = s.pop()
-        sort_stack(s)
+        reverse(s)
         insert(temp, s)
 
 
@@ -28,7 +28,7 @@ for i in range(len(stack) - 1, -1, -1):
     print(stack[i], end=" ")
 print(" ")
 
-sort_stack(stack)
+reverse(stack)
 
 for i in range(len(stack) - 1, -1, -1):
     print(stack[i], end=" ")
