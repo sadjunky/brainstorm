@@ -1,4 +1,4 @@
-
+# Next greatest element
 stack = []
 
 arr = [13, 7, 6, 12, 8, 9]
