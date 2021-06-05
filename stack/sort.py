@@ -1,7 +1,6 @@
-
-
+# Sorts in descending order
 def insert(ele):
-    if not len(stack):
+    if not len(stack) or ele > stack[-1]:
         stack.append(ele)
     else:
         temp = stack.pop()
@@ -10,10 +9,10 @@ def insert(ele):
 
 
 
-def reverse(stack):
+def sort(stack):
     if len(stack):
         temp = stack.pop()
-        reverse(stack)
+        sort(stack)
         insert(temp)
 
 
@@ -29,7 +28,7 @@ for i in range(len(stack) - 1, -1, -1):
     print(stack[i], end=" ")
 print(" ")
 
-reverse(stack)
+sort(stack)
 
 for i in range(len(stack) - 1, -1, -1):
     print(stack[i], end=" ")
