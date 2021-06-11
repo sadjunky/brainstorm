@@ -1,15 +1,13 @@
 def push(ele):
-    queue.insert(0, ele)
+    queue.append(ele)
+    for i in range(len(queue) - 1):
+        e = queue.pop(0)
+        queue.append(e)
 
 def pop():
-    if len(queue) == 1:
-        return queue.pop()
-    elif not len(queue):
-        return "Stack is empty!"
-    temp = queue.pop()
-    ele = pop()
-    queue.append(temp)
-    return ele
+    if not len(queue):
+        return "Stack empty"
+    return queue.pop(0)
 
 queue = []
 
@@ -18,7 +16,4 @@ push(5)
 push(6)
 print(pop())
 push(8)
-print(pop())
-print(pop())
-print(pop())
 print(pop())
