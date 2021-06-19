@@ -2,14 +2,15 @@
 
 def push(ele):
     lqueue.insert(0, ele)
-    temp = lqueue.pop()
-    rqueue.append(temp)
-    
 
 def pop():
-    if len(rqueue):
-        return rqueue.pop()
-    return "Stack is empty!"
+    while lqueue:
+        ele = lqueue.pop()
+        rqueue.append(ele)
+        for i in range(len(rqueue) - 1):
+            ele = rqueue.pop(0)
+            rqueue.append(ele)
+    return rqueue.pop(0)
 
 lqueue = []
 rqueue = []
