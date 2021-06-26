@@ -93,7 +93,7 @@ class Tree:
                 return True
             
             self.value = self.left.max_val()
-            self.left.delete(self.value)
+            self.left.delete(self.value) # Remove the maximum element from its former position
             return True
 
         if value < self.value and self.left:
