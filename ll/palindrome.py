@@ -1,3 +1,4 @@
+# Detect palindrome in a Linked List
 class Node:
 
     def __init__(self, data) -> None:
@@ -9,7 +10,7 @@ class LinkedList:
     def __init__(self) -> None:
         self.head = None
 
-def mid_node(l) -> Node:
+def mid_node(l) -> Node: # Search for middle node in the linked list
     temp = l.head
     count = 1
     while temp is not None:
@@ -37,7 +38,7 @@ def reverse(head) -> Node:
         curr = temp
     return prev
 
-def check(ptr1, ptr2) -> bool:
+def check(ptr1, ptr2) -> bool: # Check whether values from first half and second half of list are equal or not
     while ptr1 is not None and ptr2 is not None:
         if ptr1.data != ptr2.data:
             return False
@@ -50,7 +51,7 @@ def palindrome(l):
     temp = l.head
     while temp is not None:
         if temp is mid:
-            head = reverse(temp.next)
+            head = reverse(temp.next) # Reverse linked list from middle to end of list
             temp.next = head
             return check(l.head, temp.next)
         temp = temp.next

@@ -1,3 +1,4 @@
+# Remove duplicates from a sorted linked list
 class Node:
 
     def __init__(self, data) -> None:
