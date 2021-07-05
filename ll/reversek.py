@@ -1,4 +1,4 @@
-# Reverse a Linked List
+# Reverse k pair nodes in a linked list
 class Node:
 
     def __init__(self, data) -> None:
@@ -24,31 +24,34 @@ class LinkedList:
             print(temp.data, end=" ")
             temp = temp.next
     
-    def reverse(self) -> None:
-        temp = self.head
+    def reversek(self, head, k) -> Node:
+        temp = head
         prev = None
         curr = temp
-        while curr:
+        count = 0
+        while curr and count < k:
             temp = curr.next
             curr.next = prev
             prev = curr
             curr = temp
+            count += 1
         
-        self.head = prev
-    
-    def print_reverse(self, node) -> None: # Print reverse of a linked list without actually reversing the list
-        if not node.next:
-            print(node.data, end=" ")
-            return
-        self.print_reverse(node.next)
-        print(node.data, end=" ")
-
+        if temp:
+            head.next = self.reversek(temp, k) # Attach the head of the reversed list to the head of the former reversed list
+        
+        return prev
 
 l = LinkedList()
+l.push(8)
+l.push(7)
+l.push(6)
 l.push(5)
 l.push(4)
 l.push(3)
 l.push(2)
 l.push(1)
-l.print_reverse(l.head)
-l.reverse()
+head = l.reversek(l.head, 3)
+temp = head
+while temp:
+    print(temp.data, end=" ")
+    temp = temp.next
