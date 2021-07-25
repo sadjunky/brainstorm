@@ -43,11 +43,11 @@ class Tree:
             return True
 
         if value < self.value and self.left:
-            self.left.delete(value)
+            self.left.find(value)
             return
         
         if value > self.value and self.right:
-            self.right.delete(value)
+            self.right.find(value)
             return
         
         return False
